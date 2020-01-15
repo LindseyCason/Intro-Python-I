@@ -24,20 +24,22 @@ import calendar
 from datetime import datetime
 
 # form = input("Enter File Info")
-def myCal():
+def myCal(d):
   #Importing today's date for ease of use
   today = datetime.today()
   #The file name 14_cal.py counts as the first arg
-  if len(sys.argv) == 1:
+  if len(d) == 1:
   #Returns todays month & year if no argument is passed
     print(calendar.month(today.year, today.month))
   #Passes arg to month
-  elif len(sys.argv) == 2:
-    print(calendar.month(today.year, int(sys.argv[1])))
+  elif len(d) == 2:
+    print(calendar.month(today.year, int(d[1])))
   #Passes first arg to month and second to year
-  elif len(sys.argv) == 3:
-    print(calendar.month(int(sys.argv[2]), int(sys.argv[1])))
+  elif len(d) == 3:
+    print(calendar.month(int(d[2]), int(d[1])))
   else:
       print("Please enter number of the month and year you wish to display.")
 
-myCal()
+dates=[sys.argv,3,2002]
+myCal(dates)
+print(sys.argv, 3, 2002)
